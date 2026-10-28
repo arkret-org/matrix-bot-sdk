@@ -107,13 +107,17 @@ async fn set_room_directory_visibility_hits_correct_endpoint() {
         .await
         .expect("set visibility");
 
-    let requests = homeserver.received_requests().await.expect("captured requests");
+    let requests = homeserver
+        .received_requests()
+        .await
+        .expect("captured requests");
     assert_eq!(requests.len(), 1);
     let path = requests[0].url.path().to_owned();
     assert!(
         path.ends_with("/_matrix/client/v3/directory/list/appservice/irc/%21room%3Aexample.org")
-            || path
-                .ends_with("/_matrix/client/v3/directory/list/appservice/irc/%21room%3Aexample%2Eorg")
+            || path.ends_with(
+                "/_matrix/client/v3/directory/list/appservice/irc/%21room%3Aexample%2Eorg"
+            )
             || path.ends_with("/_matrix/client/v3/directory/list/appservice/irc/!room:example.org"),
         "unexpected path: {path}"
     );

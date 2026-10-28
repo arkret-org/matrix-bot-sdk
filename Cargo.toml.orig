@@ -7,7 +7,7 @@ license = "Apache-2.0"
 description = "Rust SDK for Matrix bots and application services"
 repository = "https://github.com/palpo-im/matrix-bot-sdk"
 keywords = ["matrix", "bot", "sdk", "chat", "appservice"]
-rust-version = "1.91"
+rust-version = "1.94"
 
 [dependencies]
 # Async runtime
@@ -86,7 +86,7 @@ ruma = { version = "0.14", features = [
 ], optional = true }
 
 # Web server for appservice
-salvo = "0.89.1"
+salvo = "1.0.1"
 
 [dev-dependencies]
 tokio-test = "0.4"
