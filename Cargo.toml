@@ -120,7 +120,7 @@ version = "0.8"
 version = "1"
 
 [dependencies.async-trait]
-version = "0.1"
+version = "0.1.92"
 
 [dependencies.base64]
 version = "0.22"
