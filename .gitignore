@@ -1,0 +1,9 @@
+/target
+
+check.log
+err.txt
+nul
+.claude
+*.log
+*.tmp
+*.bak
