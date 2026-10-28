@@ -545,7 +545,7 @@ impl InjectAppservice {
         res: &mut Response,
         ctrl: &mut FlowCtrl,
     ) {
-        depot.inject(self.appservice.clone());
+        depot.insert_typed(self.appservice.clone());
         ctrl.call_next(req, depot, res).await;
     }
 }
@@ -563,7 +563,7 @@ enum ThirdpartyObjectKind {
 }
 
 fn appservice_from_depot(depot: &Depot) -> Option<Appservice> {
-    depot.obtain::<Appservice>().ok().cloned()
+    depot.get_typed::<Appservice>().ok().cloned()
 }
 
 fn respond_error(res: &mut Response, status: StatusCode, errcode: &str, error: &str) {
